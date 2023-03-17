@@ -1,0 +1,5 @@
+aside {
+     width: var(--sidebar-height);
+    height: calc(100vh - var(--toolbar-height)); 
+    position: fixed;
+} 

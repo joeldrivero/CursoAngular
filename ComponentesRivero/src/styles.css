@@ -1,0 +1,7 @@
+*{
+    margin: 0;
+}
+:root {
+    --toolbar-height: 64px;
+    --sidebar-height: 230px;
+}
