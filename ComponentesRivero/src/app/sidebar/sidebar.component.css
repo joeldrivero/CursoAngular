@@ -3,3 +3,8 @@ aside {
     height: calc(100vh - var(--toolbar-height)); 
     position: fixed;
 } 
+
+a {
+    text-decoration: none;
+    color: white;
+}
