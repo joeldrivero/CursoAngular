@@ -1,0 +1,11 @@
+.aprobado{
+    background-color:rgb(255, 238, 0)
+}
+
+.desaprobado{
+    background-color:red
+}
+
+.promocionado{
+    background-color:rgb(133, 255, 133) 
+}
