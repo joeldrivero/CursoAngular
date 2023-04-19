@@ -1,0 +1,11 @@
+aside {
+   margin-top: 20px;
+   width: var(--sidebar-height);
+   height: calc(100vh - var(--toolbar-height));
+   position: fixed;
+}
+
+a {
+   text-decoration: none;
+   color: white;
+}

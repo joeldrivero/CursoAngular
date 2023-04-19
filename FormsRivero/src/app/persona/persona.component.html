@@ -7,28 +7,28 @@
                     <div class="row mb-4">
                         <input [formControl]="nombreControl" type="text"
                             [class.is-invalid]="nombreControl.invalid && nombreControl.touched"
-                            class="form-control is-invalid" placeholder="First Name" aria-label="First Name">
+                            class="form-control is-invalid">
                         <div *ngIf="nombreControl.touched"> <app-form-error-helper
                                 [formErrors]="nombreControl.errors"></app-form-error-helper></div>
                     </div>
                     <div class="row mb-4 ">
                         <input [formControl]="apellidoControl" type="text"
-                            [class.is-invalid]="apellidoControl.invalid && apellidoControl.touched" class="form-control"
-                            placeholder="Last Name" aria-label="Last Name">
-                        <div *ngIf="apellidoControl.touched"> <app-form-error-helper
-                                [formErrors]="apellidoControl.errors"></app-form-error-helper></div>
-                    </div>
-                    <div class="row mb-4">
-                        <input [formControl]="emailControl" type="email" class="form-control" placeholder="Email"
-                            [class.is-invalid]="emailControl.invalid && emailControl.touched" aria-label="First Name">
-                        <div *ngIf="emailControl.touched"> <app-form-error-helper
-                                [formErrors]="emailControl.errors"></app-form-error-helper></div>
+                            [class.is-invalid]="apellidoControl.invalid && apellidoControl.touched" class="form-control">
+                            <div *ngIf="apellidoControl.touched"> <app-form-error-helper
+                            [formErrors]="apellidoControl.errors"></app-form-error-helper>
                     </div>
                 </div>
-                <div class="row-12">
-                    <button class="btn btn-primary" type="submit">Crear</button>
+                <div class="row mb-4">
+                    <input [formControl]="emailControl" type="email" class="form-control"
+                        [class.is-invalid]="emailControl.invalid && emailControl.touched">
+                    <div *ngIf="emailControl.touched"> <app-form-error-helper
+                            [formErrors]="emailControl.errors"></app-form-error-helper></div>
                 </div>
-            </form>
+        </div>
+        <div class="row-12">
+            <button class="btn btn-primary" type="submit">Crear</button>
+        </div>
+        </form>
         </div>
     </section>
 </main>
