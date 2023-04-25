@@ -12,7 +12,7 @@ import { AbmAlumnosComponent } from '../abm-alumnos/abm-alumnos.component';
 export class ListaAlumnosComponent {
   Alumnos: Alumno[] = [];
 
-  displayedColumns: string[] = ['nombre', 'email','edad','curso'];
+  displayedColumns: string[] = ['nombre', 'email', 'edad', 'curso',"actions"];
   dataSource = new MatTableDataSource(this.Alumnos);
 
   constructor(private matDialog: MatDialog) {}
@@ -25,4 +25,25 @@ export class ListaAlumnosComponent {
       }
     });
   }
+  eliminarElemento(alumno: Alumno): void {
+    const index = this.dataSource.data.indexOf(alumno);
+    if (index > -1) {
+      this.dataSource.data.splice(index, 1);
+      this.dataSource = new MatTableDataSource<Alumno>(this.dataSource.data);
+    }
+  }
+
+  editarElemento(alumno: Alumno): void {
+  const dialogRef = this.matDialog.open(AbmAlumnosComponent);
+
+  dialogRef.afterClosed().subscribe((valor) => {
+    if (valor) {
+      const index = this.dataSource.data.indexOf(alumno);
+      if (index > -1) {
+        this.dataSource.data[index] = valor;
+        this.dataSource = new MatTableDataSource<Alumno>(this.dataSource.data);
+      }
+    }
+  });
+}
 }

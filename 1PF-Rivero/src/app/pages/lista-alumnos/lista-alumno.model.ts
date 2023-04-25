@@ -2,9 +2,9 @@ export class Alumno {
     constructor(
       public nombre: string,
       public apellido: string,
-      public age: number,
+      public edad: number,
       public email: string,
-      public notaFinal: number,
+      public curso: number,
     ) {}
   }
   
