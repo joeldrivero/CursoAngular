@@ -37,8 +37,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       { path: '', component: AppComponent },
       { path: 'listado', component: AppComponent },
-      { path: 'contact', component: AppComponent },
-      { path: '**', redirectTo: '' }
+      { path: 'profesores', component: AppComponent },
+      { path: 'cursos',component: AppComponent }
     ])
   ],
   providers: [],
