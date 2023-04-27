@@ -12,8 +12,8 @@ import { ModuloMaterialModule } from './modulo-material/modulo-material.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NombreCompletoPipe } from './nombre-completo.pipe';
-import { FontSizeDirective } from './font-size.directive';
+import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -23,11 +23,9 @@ import { FontSizeDirective } from './font-size.directive';
     SidebarComponent,
     PageWrapperComponent,
     ToolbarComponent,
-    ListaAlumnosComponent,
-    NombreCompletoPipe,
-    FontSizeDirective,
+    ListaAlumnosComponent
   ],
-  imports: [
+  imports: [SharedModule,
     BrowserModule,
     MatToolbarModule,
     BrowserAnimationsModule,
@@ -35,7 +33,13 @@ import { FontSizeDirective } from './font-size.directive';
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      { path: '', component: AppComponent },
+      { path: 'listado', component: AppComponent },
+      { path: 'contact', component: AppComponent },
+      { path: '**', redirectTo: '' }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
