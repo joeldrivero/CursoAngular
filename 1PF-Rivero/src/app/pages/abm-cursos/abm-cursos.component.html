@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>ABM Alumnos</h1>
+<div mat-dialog-content>
+    <form [formGroup]="cursoForm" (ngSubmit)="onSubmit()" class="w-50">
+        <div class="row mb-3">
+            <div class="row mb-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input [formControl]="nombreControl" type="text"
+                        [class.is-invalid]="nombreControl.invalid && nombreControl.touched"
+                        class="form-control is-invalid" matInput>
+                </mat-form-field>
+            </div>
+            <div class="row mb-2 ">
+                <mat-form-field appearance="fill">
+                    <mat-label>Duracion</mat-label>
+                    <input [formControl]="duracionControl" type="text"
+                        [class.is-invalid]="duracionControl.invalid && duracionControl.touched" class="form-control"
+                        matInput>
+                </mat-form-field>
+            </div>
+            <div class="row mb-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha Inicio</mat-label>
+                    <input [formControl]="fechaInicioControl" type="date" class="form-control"
+                        [class.is-invalid]="fechaInicioControl.invalid && fechaInicioControl.touched" matInput>
+                </mat-form-field>
+            </div>
+            <div class="row mb-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha Fin</mat-label>
+                    <input [formControl]="fechaFinControl" type="date" class="form-control"
+                        [class.is-invalid]="fechaFinControl.invalid && fechaFinControl.touched" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row-12">
+            <button mat-button (click)="onSubmit()">Guardar</button>
+        </div>
+    </form>
+</div>

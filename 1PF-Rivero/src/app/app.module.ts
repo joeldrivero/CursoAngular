@@ -14,6 +14,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { AbmInscripcionComponent } from './pages/abm-inscripcion/abm-inscripcion.component';
+import { AbmCursosComponent } from './pages/abm-cursos/abm-cursos.component';
+import { ListaCursosComponent } from './pages/lista-cursos/lista-cursos.component';
+import { ListaInscripcionesComponent } from './pages/lista-inscripciones/lista-inscripciones.component';
+import { DetalleCursoComponent } from './pages/detalle-curso/detalle-curso.component';
 
 
 @NgModule({
@@ -23,7 +28,12 @@ import { RouterModule } from '@angular/router';
     SidebarComponent,
     PageWrapperComponent,
     ToolbarComponent,
-    ListaAlumnosComponent
+    ListaAlumnosComponent,
+    AbmInscripcionComponent,
+    AbmCursosComponent,
+    ListaCursosComponent,
+    ListaInscripcionesComponent,
+    DetalleCursoComponent
   ],
   imports: [SharedModule,
     BrowserModule,
@@ -36,8 +46,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: AppComponent },
-      { path: 'listado', component: AppComponent },
-      { path: 'profesores', component: AppComponent },
+      { path: 'alumnos', component: AppComponent },
+      { path: 'inscripcion', component: AppComponent },
       { path: 'cursos',component: AppComponent }
     ])
   ],

@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Alumno } from './lista-alumno.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AbmAlumnosComponent } from '../abm-alumnos/abm-alumnos.component';
 import { AlumnosService } from '../../core/services/alumnos.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lista-alumnos',
   templateUrl: './lista-alumnos.component.html',
   styleUrls: ['./lista-alumnos.component.css'],
 })
-export class ListaAlumnosComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'email', 'edad', 'curso', 'actions'];
+export class ListaAlumnosComponent implements OnInit, OnDestroy {
+  displayedColumns: string[] = ['nombre', 'email', 'edad', 'actions'];
   dataSource = new MatTableDataSource<Alumno>([]);
+  alumnosSubscription: Subscription = new Subscription;
 
   constructor(
     private matDialog: MatDialog,
@@ -20,11 +22,16 @@ export class ListaAlumnosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.alumnosService.obtenerAlumnos().subscribe((alumnos) => {
-      this.dataSource.data = alumnos;
-    });
+    this.alumnosSubscription = this.alumnosService
+      .obtenerAlumnos()
+      .subscribe((alumnos) => {
+        this.dataSource.data = alumnos;
+      });
   }
 
+  ngOnDestroy(): void {
+    this.alumnosSubscription.unsubscribe();
+  }
 
   abrirABMAlumnos(): void {
     const dialog = this.matDialog.open(AbmAlumnosComponent);
@@ -37,7 +44,7 @@ export class ListaAlumnosComponent implements OnInit {
 
   eliminarElemento(alumno: Alumno): void {
     this.alumnosService.eliminarAlumno(alumno).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter(a => a !== alumno);
+      this.dataSource.data = this.dataSource.data.filter((a) => a !== alumno);
     });
   }
 
@@ -45,6 +52,7 @@ export class ListaAlumnosComponent implements OnInit {
     const dialogRef = this.matDialog.open(AbmAlumnosComponent);
     dialogRef.afterClosed().subscribe((valor) => {
       if (valor) {
+        this.alumnosService.agregarAlumno(valor)
         const index = this.dataSource.data.indexOf(alumno);
         if (index > -1) {
           this.dataSource.data[index] = valor;

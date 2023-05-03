@@ -12,22 +12,19 @@ export class AlumnosService {
       nombre: 'Juan',
       apellido: 'Perez',
       email: 'juan@example.com',
-      edad: 25,
-      curso: 1,
+      edad: 25
     },
     {
       nombre: 'María',
       apellido: 'Perez',
       email: 'maria@example.com',
-      edad: 28,
-      curso: 2,
+      edad: 28
     },
     {
       nombre: 'Pedro',
       apellido: 'Perez',
       email: 'pedro@example.com',
-      edad: 30,
-      curso: 3,
+      edad: 30
     },
   ];
 
