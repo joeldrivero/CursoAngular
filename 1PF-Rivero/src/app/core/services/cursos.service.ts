@@ -28,28 +28,4 @@ export class CursosService {
   obtenerCursos(): Observable<Curso[]> {
     return of(this.cursos);
   }
-
-  agregarCurso(curso: Curso): Observable<void> {
-    this.cursos.push(curso);
-    return of(undefined);
-  }
-  obtenerInscripcionesPorCurso(idCurso: number): Observable<Inscripcion[]> {
-    return of(this.inscripciones.filter((i) => i.curso.id === idCurso));
-  }
-
-  editarCurso(curso: Curso): Observable<void> {
-    const index = this.cursos.findIndex((c) => c.id === curso.id);
-    if (index >= 0) {
-      this.cursos[index] = curso;
-    }
-    return of(undefined);
-  }
-
-  eliminarCurso(curso: Curso): Observable<void> {
-    const index = this.cursos.findIndex((c) => c.id === curso.id);
-    if (index >= 0) {
-      this.cursos.splice(index, 1);
-    }
-    return of(undefined);
-  }
 }

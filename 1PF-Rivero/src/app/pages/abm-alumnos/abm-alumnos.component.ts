@@ -26,11 +26,6 @@ export class AbmAlumnosComponent {
     Validators.minLength(1),
   ]);
 
-  cursoControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(1),
-  ]);
-
   fechaNacimientoControl = new FormControl('', [Validators.required]);
 
   alumnoForm = new FormGroup({
@@ -38,7 +33,6 @@ export class AbmAlumnosComponent {
     apellido: this.apellidoControl,
     email: this.emailControl,
     edad: this.edadControl,
-    curso: this.cursoControl,
   });
   AlumnoService: any;
 
@@ -48,7 +42,7 @@ export class AbmAlumnosComponent {
   ) {}
 
   onSubmit() {
-    console.log(this.alumnoForm.value)
+    console.log(this.alumnoForm.value);
     this.dialogRef.close(this.alumnoForm.value);
   }
 }

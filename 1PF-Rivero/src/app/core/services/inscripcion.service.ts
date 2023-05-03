@@ -39,17 +39,4 @@ export class InscripcionService {
       )
     );
   }
-
-  agregarInscripcion(inscripcion: Inscripcion): void {
-    this.inscripciones.push(inscripcion);
-  }
-
-  actualizarInscripcion(inscripcion: Inscripcion): void {
-    const index = this.inscripciones.findIndex((i) => i.id === inscripcion.id);
-    this.inscripciones[index] = inscripcion;
-  }
-
-  eliminarInscripcion(id: number): void {
-    this.inscripciones = this.inscripciones.filter((i) => i.id !== id);
-  }
 }
