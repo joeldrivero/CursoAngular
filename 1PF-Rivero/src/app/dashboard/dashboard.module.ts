@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { ModuloMaterialModule } from '../shared/modulo-material/modulo-material.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '../shared/shared.module';
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
@@ -39,6 +34,11 @@ import { PipesModule } from '../shared/pipes/pipes.module';
         path: 'cursos',
         loadChildren: () =>
           import('./pages/cursos/cursos.module').then((m) => m.CursosModule),
+      },
+      {
+        path: 'inscripciones',
+        loadChildren: () =>
+          import('./pages/inscripcion/inscripcion.module').then((m) => m.InscripcionModule),
       },
     ]),
   ],

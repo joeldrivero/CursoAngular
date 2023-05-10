@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AbmInscripcionComponent } from './abm-inscripcion/abm-inscripcion.component';
 import { ListaInscripcionesComponent } from './lista-inscripciones/lista-inscripciones.component';
 import { InscripcionComponent } from './inscripcion.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,13 @@ import { InscripcionComponent } from './inscripcion.component';
     InscripcionComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: ListaInscripcionesComponent
+      }
+    ])
   ]
 })
 export class InscripcionModule { }
