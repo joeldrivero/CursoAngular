@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    SharedModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,

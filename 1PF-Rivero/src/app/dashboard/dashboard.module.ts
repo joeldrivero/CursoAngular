@@ -22,7 +22,6 @@ import { PipesModule } from '../shared/pipes/pipes.module';
     SharedModule,
     PipesModule,
     DirectivesModule,
-    RouterModule,
     MatToolbarModule,
     RouterModule.forChild([
       {
