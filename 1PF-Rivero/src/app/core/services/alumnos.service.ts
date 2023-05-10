@@ -1,37 +1,22 @@
 import { Injectable } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of } from 'rxjs';
-import { Alumno } from 'src/app/pages/lista-alumnos/lista-alumno.model';
+import { Alumno } from 'src/app/dashboard/pages/alumnos/lista-alumnos/lista-alumno.model';
+import { HttpClient } from '@angular/common/http';
+import { enviroment } from 'src/environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlumnosService {
-  alumnos: Alumno[] = [
-    {
-      nombre: 'Juan',
-      apellido: 'Perez',
-      email: 'juan@example.com',
-      edad: 25
-    },
-    {
-      nombre: 'María',
-      apellido: 'Perez',
-      email: 'maria@example.com',
-      edad: 28
-    },
-    {
-      nombre: 'Pedro',
-      apellido: 'Perez',
-      email: 'pedro@example.com',
-      edad: 30
-    },
-  ];
+  readonly url = `${enviroment.apiBaseUrl}/alumnos`;
 
-  constructor() {}
+  alumnos: Alumno[] = [];
+
+  constructor(private http: HttpClient) {}
 
   obtenerAlumnos(): Observable<Alumno[]> {
-    return of(this.alumnos);
+    return this.http.get<Alumno[]>(this.url);
   }
 
   agregarAlumno(alumno: Alumno): void {
@@ -45,7 +30,6 @@ export class AlumnosService {
     }
     return of(undefined);
   }
-  
 
   editAlumno(oldAlumno: Alumno, newAlumno: Alumno): void {
     const index = this.alumnos.indexOf(oldAlumno);

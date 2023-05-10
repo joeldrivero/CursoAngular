@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Curso } from 'src/app/pages/lista-cursos/curso.model';
-import { Inscripcion } from 'src/app/pages/lista-inscripciones/inscripcion.model';
+import { Curso } from 'src/app/dashboard/pages/cursos/lista-cursos/curso.model';
+import { Inscripcion } from 'src/app/dashboard/pages/inscripcion/lista-inscripciones/inscripcion.model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Inscripcion } from 'src/app/pages/lista-inscripciones/inscripcion.model';
+import { Inscripcion } from 'src/app/dashboard/pages/inscripcion/lista-inscripciones/inscripcion.model';
 
 @Injectable({
   providedIn: 'root',

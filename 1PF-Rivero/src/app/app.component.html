@@ -1,13 +1,1 @@
-<app-toolbar></app-toolbar>
-<app-sidebar></app-sidebar>
-<app-page-wrapper>
-    <ng-container *ngIf="currentRoute === '/alumnos'">
-        <app-lista-alumnos></app-lista-alumnos>
-    </ng-container>
-    <ng-container *ngIf="currentRoute === '/cursos'">
-        <app-lista-cursos></app-lista-cursos>
-    </ng-container>
-    <ng-container *ngIf="currentRoute === '/inscripcion'">
-        <app-lista-inscripciones></app-lista-inscripciones>
-    </ng-container>
-</app-page-wrapper>
+<router-outlet></router-outlet>
