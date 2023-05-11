@@ -1,31 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Curso } from 'src/app/dashboard/pages/cursos/lista-cursos/curso.model';
 import { Inscripcion } from 'src/app/dashboard/pages/inscripcion/lista-inscripciones/inscripcion.model';
+import { enviroment } from 'src/environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CursosService {
   private inscripciones: Inscripcion[] = [];
+  readonly url = `${enviroment.apiBaseUrl}/cursos`;
   private cursos: Curso[] = [
-    {
-      id: 1,
-      nombre: 'Programación en Angular',
-      duracion: '6 semanas',
-      fechaInicio: '2022-06-01',
-      fechaFin: '2022-07-15',
-    },
-    {
-      id: 2,
-      nombre: 'Desarrollo de aplicaciones móviles',
-      duracion: '8 semanas',
-      fechaInicio: '2022-07-01',
-      fechaFin: '2022-08-30',
-    },
   ];
+  constructor(private http: HttpClient) {}
 
   obtenerCursos(): Observable<Curso[]> {
-    return of(this.cursos);
+    return this.http.get<Curso[]>(this.url);
   }
 }

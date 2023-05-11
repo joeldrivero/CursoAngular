@@ -16,7 +16,6 @@ import { CursosComponent } from './cursos.component';
 import { ListaCursosComponent } from './lista-cursos/lista-cursos.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DirectivesModule } from 'src/app/shared/directives/directives.module';
-import { NombreCompletoPipe } from 'src/app/shared/pipes/nombre-completo.pipe';
 import { DetalleCursoComponent } from './detalle-curso/detalle-curso.component';
 
 
@@ -29,6 +28,7 @@ import { DetalleCursoComponent } from './detalle-curso/detalle-curso.component';
     DetalleCursoComponent
   ],
   imports: [
+    CommonModule,
     PipesModule,
     DirectivesModule,
     SharedModule,

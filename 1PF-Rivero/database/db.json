@@ -29,5 +29,21 @@
             "email": "pedro@example.com",
             "edad": 30
         }
+    ],
+    "cursos": [
+        {
+            "id": 1,
+            "nombre": "Programación en Angular",
+            "duracion": "6 semanas",
+            "fechaInicio": "2022-06-01",
+            "fechaFin": "2022-07-15"
+        },
+        {
+            "id": 2,
+            "nombre": "Desarrollo de aplicaciones móviles",
+            "duracion": "8 semanas",
+            "fechaInicio": "2022-07-01",
+            "fechaFin": "2022-08-30"
+        }
     ]
 }

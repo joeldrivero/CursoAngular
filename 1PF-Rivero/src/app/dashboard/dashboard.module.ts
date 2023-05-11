@@ -9,6 +9,7 @@ import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { PageWrapperComponent } from './pages/page-wrapper/page-wrapper.component';
 import { DirectivesModule } from '../shared/directives/directives.module';
 import { PipesModule } from '../shared/pipes/pipes.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PipesModule } from '../shared/pipes/pipes.module';
     PageWrapperComponent,
   ],
   imports: [
+    CommonModule,
     ModuloMaterialModule,
     SharedModule,
     PipesModule,

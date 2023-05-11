@@ -26,7 +26,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule
   ],
 })
 export class ModuloMaterialModule {}
