@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, map, catchError, of, BehaviorSubject } from 'rxjs';
-import { Usuario } from '../models/usuario.model';
+import { Usuario } from '../../core/models/usuario.model';
 import { enviroment } from 'src/environments/environments';
 
 export interface LoginFormValue {

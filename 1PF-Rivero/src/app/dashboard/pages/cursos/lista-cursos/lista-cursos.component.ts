@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { Curso } from './curso.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
-import { CursosService } from 'src/app/core/services/cursos.service';
+import { CursosService } from 'src/app/dashboard/pages/cursos/services/cursos.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AbmCursosComponent } from '../abm-cursos/abm-cursos.component';
 import { ListaInscripcionesComponent } from '../../inscripcion/lista-inscripciones/lista-inscripciones.component';
 import { DetalleCursoComponent } from '../detalle-curso/detalle-curso.component';
 import { Inscripcion } from '../../inscripcion/lista-inscripciones/inscripcion.model';
-import { InscripcionService } from '../../../../core/services/inscripcion.service';
+import { InscripcionService } from '../../inscripcion/services/inscripcion.service';
 
 @Component({
   selector: 'app-lista-cursos',
@@ -53,11 +53,10 @@ export class ListaCursosComponent {
         const alumnos = inscripciones.map((inscripcion) => inscripcion.alumno);
         this.matDialog.open(DetalleCursoComponent, {
           data: { curso, alumnos, inscripciones },
-          width: '600px'
+          width: '600px',
         });
       });
   }
-
 
   mostrarNombresAlumnos(nombres: string[]) {
     this.matDialog.open(ListaInscripcionesComponent, {
@@ -70,7 +69,15 @@ export class ListaCursosComponent {
     const dialog = this.matDialog.open(AbmCursosComponent);
     dialog.afterClosed().subscribe((valor) => {
       if (valor) {
-        this.dataSource.data = [...this.dataSource.data, valor];
+        this.cursosService.agregarCurso(valor).subscribe(
+          () => {
+            console.log(valor);
+            this.ngOnInit();
+          },
+          (error) => {
+            console.log('Error al agregar curso:', error);
+          }
+        );
       }
     });
   }

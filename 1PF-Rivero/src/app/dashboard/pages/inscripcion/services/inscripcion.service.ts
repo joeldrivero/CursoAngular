@@ -7,7 +7,7 @@ import { Inscripcion } from 'src/app/dashboard/pages/inscripcion/lista-inscripci
 })
 export class InscripcionService {
   private inscripciones: Inscripcion[] = [
-    {
+  /*   {
       id: 1,
       alumno: {
         nombre: 'Juan',
@@ -23,7 +23,7 @@ export class InscripcionService {
         fechaFin: '2022-07-15',
       },
       fecha: '2022-02-15',
-    },
+    }, */
   ];
 
   constructor() {}

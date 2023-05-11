@@ -11,11 +11,14 @@ import { enviroment } from 'src/environments/environments';
 export class CursosService {
   private inscripciones: Inscripcion[] = [];
   readonly url = `${enviroment.apiBaseUrl}/cursos`;
-  private cursos: Curso[] = [
-  ];
+  private cursos: Curso[] = [];
   constructor(private http: HttpClient) {}
 
   obtenerCursos(): Observable<Curso[]> {
     return this.http.get<Curso[]>(this.url);
+  }
+
+  agregarCurso(curso: Curso): Observable<Curso[]> {
+    return this.http.post<Curso[]>(this.url, curso);
   }
 }

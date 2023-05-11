@@ -1,9 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { enviroment } from 'src/environments/environments';
 import { Usuario } from '../core/models/usuario.model';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService } from '../auth/pages/auth.service';
+
 
 @Component({
   selector: 'app-dashboard',

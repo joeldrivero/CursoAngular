@@ -18,22 +18,18 @@ export class AlumnosService {
     return this.http.get<Alumno[]>(this.url);
   }
 
-  agregarAlumno(alumno: Alumno): void {
-    this.alumnos.push(alumno);
+  agregarAlumno(alumno: Alumno): Observable<Alumno> {
+    console.log(this.url)
+    return this.http.post<Alumno>(this.url, alumno);
   }
 
   eliminarAlumno(alumno: Alumno): Observable<void> {
-    const index = this.alumnos.indexOf(alumno);
-    if (index > -1) {
-      this.alumnos.splice(index, 1);
-    }
-    return of(undefined);
+    const url = this.url + '/' + alumno.id;
+    return this.http.delete<void>(url);
   }
 
-  editAlumno(oldAlumno: Alumno, newAlumno: Alumno): void {
-    const index = this.alumnos.indexOf(oldAlumno);
-    if (index > -1) {
-      this.alumnos[index] = newAlumno;
-    }
+  editAlumno(oldAlumno: Alumno, newAlumno: Alumno): Observable<Alumno> {
+    const url = this.url + '/' + oldAlumno.id;
+    return this.http.put<Alumno>(url, newAlumno);
   }
 }

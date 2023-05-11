@@ -1,49 +1,59 @@
 {
-    "usuarios": [
-        {
-            "id": 1,
-            "apellido": "testapellido",
-            "email": "test@mail.com",
-            "nombre": "testnombre",
-            "role": "admin",
-            "token": "asdkjsanfkdams3u2hjdasfadsuh",
-            "password": "12312312"
-        }
-    ],
-    "alumnos": [
-        {
-            "nombre": "Juan",
-            "apellido": "Perez",
-            "email": "juan@example.com",
-            "edad": 25
-        },
-        {
-            "nombre": "María",
-            "apellido": "Perez",
-            "email": "maria@example.com",
-            "edad": 28
-        },
-        {
-            "nombre": "Pedro",
-            "apellido": "Perez",
-            "email": "pedro@example.com",
-            "edad": 30
-        }
-    ],
-    "cursos": [
-        {
-            "id": 1,
-            "nombre": "Programación en Angular",
-            "duracion": "6 semanas",
-            "fechaInicio": "2022-06-01",
-            "fechaFin": "2022-07-15"
-        },
-        {
-            "id": 2,
-            "nombre": "Desarrollo de aplicaciones móviles",
-            "duracion": "8 semanas",
-            "fechaInicio": "2022-07-01",
-            "fechaFin": "2022-08-30"
-        }
-    ]
+  "usuarios": [
+    {
+      "id": 1,
+      "apellido": "testapellido",
+      "email": "test@mail.com",
+      "nombre": "testnombre",
+      "role": "admin",
+      "token": "asdkjsanfkdams3u2hjdasfadsuh",
+      "password": "12312312"
+    }
+  ],
+  "alumnos": [
+    {
+      "nombre": "Juan",
+      "apellido": "Carlos",
+      "email": "juan@carlos.com",
+      "edad": 22,
+      "id": 1
+    },
+    {
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "email": "juan@perez.com",
+      "edad": 23,
+      "id": 2
+    },
+    {
+      "nombre": "Paula",
+      "apellido": "Gonzalez",
+      "email": "paula@gonzalez.com",
+      "edad": 28,
+      "id": 3
+    }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "nombre": "Programación en Angular",
+      "duracion": "6 semanas",
+      "fechaInicio": "2022-06-01",
+      "fechaFin": "2022-07-15"
+    },
+    {
+      "id": 2,
+      "nombre": "Desarrollo de aplicaciones móviles",
+      "duracion": "8 semanas",
+      "fechaInicio": "2022-07-01",
+      "fechaFin": "2022-08-30"
+    },
+    {
+      "nombre": "Curso Test",
+      "duracion": "12 meses",
+      "fechaInicio": "2022-02-12",
+      "fechaFin": "2022-03-12",
+      "id": 3
+    }
+  ]
 }

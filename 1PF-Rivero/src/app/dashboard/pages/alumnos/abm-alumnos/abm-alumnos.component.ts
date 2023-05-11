@@ -2,7 +2,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AlumnosService } from 'src/app/core/services/alumnos.service';
+import { AlumnosService } from 'src/app/dashboard/pages/alumnos/services/alumnos.service';
 
 @Component({
   selector: 'app-abm-alumnos',

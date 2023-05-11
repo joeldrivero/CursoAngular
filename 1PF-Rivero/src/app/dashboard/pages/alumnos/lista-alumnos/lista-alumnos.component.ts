@@ -3,7 +3,7 @@ import { Alumno } from './lista-alumno.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AbmAlumnosComponent } from '../abm-alumnos/abm-alumnos.component';
-import { AlumnosService } from '../../../../core/services/alumnos.service';
+import { AlumnosService } from '../services/alumnos.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 export class ListaAlumnosComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['nombre', 'email', 'edad', 'actions'];
   dataSource = new MatTableDataSource<Alumno>([]);
-  alumnosSubscription: Subscription = new Subscription;
+  alumnosSubscription: Subscription = new Subscription();
 
   constructor(
     private matDialog: MatDialog,
@@ -22,14 +22,14 @@ export class ListaAlumnosComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.alumnosService.obtenerAlumnos())
+    console.log(this.alumnosService.obtenerAlumnos());
     this.alumnosSubscription = this.alumnosService
       .obtenerAlumnos()
       .subscribe((alumnos) => {
-        console.log(alumnos)
+        console.log(alumnos);
         this.dataSource.data = alumnos;
       });
-      console.log(this.dataSource.data)
+    console.log(this.dataSource.data);
   }
 
   ngOnDestroy(): void {
@@ -40,7 +40,15 @@ export class ListaAlumnosComponent implements OnInit, OnDestroy {
     const dialog = this.matDialog.open(AbmAlumnosComponent);
     dialog.afterClosed().subscribe((valor) => {
       if (valor) {
-        this.dataSource.data = [...this.dataSource.data, valor];
+        this.alumnosService.agregarAlumno(valor).subscribe(
+          () => {
+            console.log(valor);
+            this.ngOnInit()
+          },
+          (error) => {
+            console.log('Error al agregar alumno:', error);
+          }
+        );
       }
     });
   }
@@ -55,7 +63,7 @@ export class ListaAlumnosComponent implements OnInit, OnDestroy {
     const dialogRef = this.matDialog.open(AbmAlumnosComponent);
     dialogRef.afterClosed().subscribe((valor) => {
       if (valor) {
-        this.alumnosService.agregarAlumno(valor)
+        this.alumnosService.editAlumno(alumno, valor);
         const index = this.dataSource.data.indexOf(alumno);
         if (index > -1) {
           this.dataSource.data[index] = valor;
