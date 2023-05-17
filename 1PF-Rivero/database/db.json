@@ -39,14 +39,28 @@
       "nombre": "Programación en Angular",
       "duracion": "6 semanas",
       "fechaInicio": "2022-06-01",
-      "fechaFin": "2022-07-15"
+      "fechaFin": "2022-07-15",
+      "alumno": {
+        "nombre": "Paula",
+        "apellido": "Gonzalez",
+        "email": "paula@gonzalez.com",
+        "edad": 28,
+        "id": 3
+      }
     },
     {
       "id": 2,
       "nombre": "Desarrollo de aplicaciones móviles",
       "duracion": "8 semanas",
       "fechaInicio": "2022-07-01",
-      "fechaFin": "2022-08-30"
+      "fechaFin": "2022-08-30",
+      "alumno": {
+        "nombre": "Juan",
+        "apellido": "Carlos",
+        "email": "juan@carlos.com",
+        "edad": 22,
+        "id": 1
+      }
     },
     {
       "nombre": "Curso Test",

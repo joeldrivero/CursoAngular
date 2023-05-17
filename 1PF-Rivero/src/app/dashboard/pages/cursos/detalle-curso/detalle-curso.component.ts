@@ -1,9 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
-import { Alumno } from '../../alumnos/lista-alumnos/lista-alumno.model';
 import { Curso } from '../lista-cursos/curso.model';
-
+import { Alumno } from '../../alumnos/lista-alumnos/lista-alumno.model';
 
 @Component({
   selector: 'app-detalle-curso',
@@ -13,6 +11,6 @@ import { Curso } from '../lista-cursos/curso.model';
 export class DetalleCursoComponent {
   constructor(
     public dialogRef: MatDialogRef<DetalleCursoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { curso: Curso; alumnos: any[] }
+    @Inject(MAT_DIALOG_DATA) public data: { curso: Curso; alumnos: Alumno[] }
   ) {}
 }

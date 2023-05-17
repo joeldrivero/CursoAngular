@@ -1,42 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Inscripcion } from 'src/app/dashboard/pages/inscripcion/lista-inscripciones/inscripcion.model';
+import { enviroment } from 'src/environments/environments';
+import { Curso } from '../../cursos/lista-cursos/curso.model';
+import { Alumno } from '../../alumnos/lista-alumnos/lista-alumno.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InscripcionService {
-  private inscripciones: Inscripcion[] = [
-  /*   {
-      id: 1,
-      alumno: {
-        nombre: 'Juan',
-        apellido: 'Pérez',
-        edad: 20,
-        email: 'juanperez@gmail.com',
-      },
-      curso: {
-        id: 1,
-        nombre: 'Programación en Angular',
-        duracion: '6 semanas',
-        fechaInicio: '2022-06-01',
-        fechaFin: '2022-07-15',
-      },
-      fecha: '2022-02-15',
-    }, */
-  ];
+  readonly url = `${enviroment.apiBaseUrl}/cursos`;
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
-
-  getInscripciones(): Observable<Inscripcion[]> {
-    return of(this.inscripciones);
+  crearInscripcion(curso: Curso): Observable<any> {
+    const url = this.url + '/' + curso.id;
+    console.log('cursito:', curso);
+    return this.http.put<any>(url, curso);
   }
 
-  getInscripcionesPorCurso(cursoId: number): Observable<Inscripcion[]> {
-    return of(
-      this.inscripciones.filter(
-        (inscripcion) => inscripcion.curso.id === cursoId
-      )
-    );
+  getInscripcionesPorCurso(cursoid: number): Observable<any> {
+    const url = this.url + '/' + cursoid;
+    return this.http.get<any>(url);
   }
 }

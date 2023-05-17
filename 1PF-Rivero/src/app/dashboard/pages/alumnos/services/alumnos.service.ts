@@ -19,7 +19,6 @@ export class AlumnosService {
   }
 
   agregarAlumno(alumno: Alumno): Observable<Alumno> {
-    console.log(this.url)
     return this.http.post<Alumno>(this.url, alumno);
   }
 
