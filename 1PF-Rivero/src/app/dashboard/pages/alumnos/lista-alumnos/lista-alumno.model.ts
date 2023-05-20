@@ -1,4 +1,5 @@
 export class Alumno {
+  forEach: any;
   constructor(
     public id: string,
     public nombre: string,

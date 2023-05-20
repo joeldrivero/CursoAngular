@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <h2>Alumnos inscritos:</h2>
   <ul>
-    <li *ng="let alumno of data.alumnos">{{ alumno.nombre | nombreCompleto}}</li>
+    <li *ngFor="let data of data.alumno">{{ data | nombreCompleto}}</li>
   </ul>
   <div class="buttons">
     <button mat-button (click)="dialogRef.close()">Cerrar</button>

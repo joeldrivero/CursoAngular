@@ -6,7 +6,6 @@ export class Curso {
     public nombre: String,
     public duracion: String,
     public fechaInicio: String,
-    public fechaFin: String,
-    public alumno: Alumno
+    public fechaFin: String
   ) {}
 }

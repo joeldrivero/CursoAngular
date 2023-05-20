@@ -41,6 +41,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatDatepickerModule,
     MatNativeDateModule,
     SharedModule,
-  ],
+    RouterModule.forChild([
+      {
+        path: '',
+        component: InscripcionComponent
+      }
+    ])
+  ]
 })
 export class InscripcionModule {}

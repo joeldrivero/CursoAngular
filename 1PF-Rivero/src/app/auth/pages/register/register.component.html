@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>ABM Usuario</h1>
+<div mat-dialog-content>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="w-50">
+        <div class="row mb-3">
+            <div class="row mb-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input [formControl]="nombreControl" type="text"
+                        [class.is-invalid]="nombreControl.invalid && nombreControl.touched"
+                        class="form-control is-invalid" matInput>
+                </mat-form-field>
+            </div>
+            <div class="row mb-2 ">
+                <mat-form-field appearance="fill">
+                    <!-- <mat-label>Apellido</mat-label> -->
+                    <input [formControl]="apellidoControl" type="text"
+                        [class.is-invalid]="apellidoControl.invalid && apellidoControl.touched" class="form-control"
+                        matInput>
+                </mat-form-field>
+            </div>
+            <div class="row mb-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input [formControl]="emailControl" type="email" class="form-control"
+                        [class.is-invalid]="emailControl.invalid && emailControl.touched" matInput>
+                </mat-form-field>
+            </div>
+            <div class="row mb-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input [formControl]="passwordControl" type="password" class="form-control"
+                        [class.is-invalid]="passwordControl.invalid && passwordControl.touched" matInput>
+                </mat-form-field>
+            </div>
+          
+        </div>
+        <div class="row-12">
+            <button mat-button (click)="onSubmit()">Guardar</button>
+        </div>
+    </form>
+</div>

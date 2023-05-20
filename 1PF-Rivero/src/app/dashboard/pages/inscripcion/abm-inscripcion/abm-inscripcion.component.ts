@@ -52,7 +52,6 @@ export class AbmInscripcionComponent {
   });
 
   onSubmit() {
-    console.log(this.inscripcionForm.value)
     this.dialogRef.close(this.inscripcionForm.value);
   }
 }

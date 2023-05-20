@@ -11,12 +11,13 @@ import { DirectivesModule } from '../shared/directives/directives.module';
 import { PipesModule } from '../shared/pipes/pipes.module';
 import { CommonModule } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
     ToolbarComponent,
     SidebarComponent,
-    PageWrapperComponent,
+    PageWrapperComponent
   ],
   imports: [
     CommonModule,

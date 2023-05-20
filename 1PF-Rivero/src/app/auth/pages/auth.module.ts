@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
+import { RegisterComponent } from './register/register.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -23,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [LoginComponent, AuthComponent],
+  declarations: [LoginComponent, AuthComponent, RegisterComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -31,6 +33,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatCardModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule

@@ -28,11 +28,7 @@ export class AuthService {
   login(formValue: LoginFormValue): void {
 
     this.httpClient
-      .get<Usuario[]>(`${enviroment.apiBaseUrl}/usuarios?email=${formValue.email}&password=${formValue.password}`/* ,{ 
-        params: {
-          ...formValue,
-        },
-      } */)
+      .get<Usuario[]>(`${enviroment.apiBaseUrl}/usuarios?email=${formValue.email}&password=${formValue.password}`)
       .subscribe({
         next: (usuarios) => {
           const usuarioAutenticado = usuarios[0];

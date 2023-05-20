@@ -9,7 +9,6 @@ import { enviroment } from 'src/environments/environments';
   providedIn: 'root',
 })
 export class CursosService {
-
   readonly url = `${enviroment.apiBaseUrl}/cursos`;
   private cursos: Curso[] = [];
   constructor(private http: HttpClient) {}
@@ -20,5 +19,10 @@ export class CursosService {
 
   agregarCurso(curso: Curso): Observable<Curso[]> {
     return this.http.post<Curso[]>(this.url, curso);
+  }
+
+  eliminarCurso(curso: Curso): Observable<void> {
+    const url = this.url + '/' + curso.id;
+    return this.http.delete<void>(url);
   }
 }

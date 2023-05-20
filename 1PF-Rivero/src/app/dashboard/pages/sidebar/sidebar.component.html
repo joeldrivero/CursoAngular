@@ -20,6 +20,13 @@
                         <a routerLink="/dashboard/cursos" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Cursos</span> </a>
                     </li>
+                    <li>
+                        <a routerLink="/dashboard/inscripciones" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Inscripciones</span> </a>
+                    </li>
+                    <li>
+                        <button (click)="logout()" mat-list-item> Cerrar sesión</button>
+                    </li> 
                 </ul>
                 <hr>
             </div>

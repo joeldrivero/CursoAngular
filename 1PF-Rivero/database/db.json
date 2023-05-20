@@ -1,4 +1,24 @@
 {
+  "inscripciones": [
+    {
+      "alumno": {
+        "nombre": "Paula",
+        "apellido": "Gonzalez",
+        "email": "paula@gonzalez.com",
+        "edad": 28,
+        "id": 3
+      },
+      "curso": {
+        "id": 1,
+        "nombre": "Programación en Angular",
+        "duracion": "6 semanas",
+        "fechaInicio": "2022-06-01",
+        "fechaFin": "2022-07-15"
+      },
+      "fecha": "",
+      "id": 2
+    }
+  ],
   "usuarios": [
     {
       "id": 1,
@@ -8,6 +28,24 @@
       "role": "admin",
       "token": "asdkjsanfkdams3u2hjdasfadsuh",
       "password": "12312312"
+    },
+    {
+      "nombre": "Joel",
+      "apellido": "Rivero",
+      "email": "joelriv98@gmail.com",
+      "password": "1234",
+      "token": "aOvNvSOssons",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "nombre": "Prueba",
+      "apellido": "Test",
+      "email": "prueba@hotmail.com",
+      "edad": "12345",
+      "token": "dannSNoOnvdD",
+      "role": "user",
+      "id": 4
     }
   ],
   "alumnos": [
@@ -39,28 +77,14 @@
       "nombre": "Programación en Angular",
       "duracion": "6 semanas",
       "fechaInicio": "2022-06-01",
-      "fechaFin": "2022-07-15",
-      "alumno": {
-        "nombre": "Paula",
-        "apellido": "Gonzalez",
-        "email": "paula@gonzalez.com",
-        "edad": 28,
-        "id": 3
-      }
+      "fechaFin": "2022-07-15"
     },
     {
       "id": 2,
       "nombre": "Desarrollo de aplicaciones móviles",
       "duracion": "8 semanas",
       "fechaInicio": "2022-07-01",
-      "fechaFin": "2022-08-30",
-      "alumno": {
-        "nombre": "Juan",
-        "apellido": "Carlos",
-        "email": "juan@carlos.com",
-        "edad": 22,
-        "id": 1
-      }
+      "fechaFin": "2022-08-30"
     },
     {
       "nombre": "Curso Test",

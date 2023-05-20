@@ -4,6 +4,9 @@
       <span>ABM Alumnos</span>
     </mat-toolbar-row>
     <mat-toolbar-row>
+      <p>{{ (authUser$ | async)?.email }} | {{ (authUser$ | async)?.role }}</p>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
       <span>{{time | async}}</span>
     </mat-toolbar-row>
   </mat-toolbar>
