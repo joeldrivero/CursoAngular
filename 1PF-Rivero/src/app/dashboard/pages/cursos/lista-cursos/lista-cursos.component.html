@@ -27,6 +27,9 @@
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let curso">
+            <button mat-icon-button color="primary" *ngIf="esAdmin" (click)="editarElemento(curso)">
+                <mat-icon>edit</mat-icon>
+            </button>
             <button mat-icon-button (click)="verInscripciones(curso)">
                 <mat-icon>visibility</mat-icon>
             </button>
@@ -41,4 +44,5 @@
     <button mat-flat-button color="primary" *ngIf="esAdmin" (click)="abrirABMCursos()">
         <mat-icon>add</mat-icon>Agregar Curso
     </button>
+
 </div>

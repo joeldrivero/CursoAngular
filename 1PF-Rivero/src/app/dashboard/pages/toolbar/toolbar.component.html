@@ -1,13 +1,9 @@
 <div class="toolbar">
   <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>ABM Alumnos</span>
-    </mat-toolbar-row>
-    <mat-toolbar-row>
-      <p>{{ (authUser$ | async)?.email }} | {{ (authUser$ | async)?.role }}</p>
-    </mat-toolbar-row>
-    <mat-toolbar-row>
-      <span>{{time | async}}</span>
+    <mat-toolbar-row class="flex-container">
+      <span class="left-element">ABM Alumnos</span>
+      <p class="center-element">Hola {{ (authUser$ | async)?.nombre }}</p>
+      <span class="right-element">{{time | async}}</span>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>

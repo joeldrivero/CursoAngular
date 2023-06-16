@@ -85,6 +85,20 @@ export class ListaCursosComponent {
     });
   }
 
+  editarElemento(curso: Curso): void {
+    const dialogRef = this.matDialog.open(AbmCursosComponent);
+    dialogRef.afterClosed().subscribe((valor) => {
+      if (valor) {
+        this.cursosService.editAlumno(curso, valor);
+        const index = this.dataSource.data.indexOf(curso);
+        if (index > -1) {
+          this.dataSource.data[index] = valor;
+          this.dataSource = new MatTableDataSource<Curso>(this.dataSource.data);
+        }
+      }
+    });
+  }
+
   abrirABMInscripcion(): void {
     const dialog = this.matDialog.open(AbmInscripcionComponent);
     dialog.afterClosed().subscribe((valor) => {

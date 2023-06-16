@@ -1,5 +1,4 @@
 aside {
-   margin-top: 20px;
    width: var(--sidebar-height);
    height: calc(100vh - var(--toolbar-height));
    position: fixed;
@@ -11,6 +10,6 @@ a {
 }
 
 .logoutButton {
-  background-color: white;
+   background-color:grey;
   color: white;
 }

@@ -25,4 +25,9 @@ export class CursosService {
     const url = this.url + '/' + curso.id;
     return this.http.delete<void>(url);
   }
+
+  editAlumno(oldCurso: Curso, newCurso: Curso): Observable<Curso> {
+    const url = this.url + '/' + oldCurso.id;
+    return this.http.put<Curso>(url, newCurso);
+  }
 }

@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 import { RegisterComponent } from './register/register.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { StoreModule } from '@ngrx/store';
+import { loginReducer } from 'src/app/store/login/login.reducer';
 
 const routes: Routes = [
   {
@@ -36,7 +38,7 @@ const routes: Routes = [
     MatDialogModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
   ],
 })
 export class AuthModule {}

@@ -1,6 +1,17 @@
-mat-toolbar {
-    position: fixed;
-    z-index: 1;
+.flex-container {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-element {
+    margin-right: auto;
+}
+
+.center-element {
+    margin: 0 auto;
+}
+
+.right-element {
+    margin-left: auto;
 }

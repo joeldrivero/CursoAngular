@@ -6,9 +6,10 @@ import { Usuario } from '../../core/models/usuario.model';
 import { enviroment } from 'src/environments/environments';
 
 export interface LoginFormValue {
-  email: string;
-  password: string;
+  email: string | null;
+  password: string | null;
 }
+
 @Injectable({
   providedIn: 'root',
 })
