@@ -4,7 +4,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AbmAlumnosComponent } from '../abm-alumnos/abm-alumnos.component';
 import { AlumnosService } from '../services/alumnos.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription, map } from 'rxjs';
+import { AuthService } from 'src/app/auth/pages/auth.service';
+import { Usuario } from 'src/app/core/models/usuario.model';
 
 @Component({
   selector: 'app-lista-alumnos',
@@ -15,23 +17,27 @@ export class ListaAlumnosComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['nombre', 'email', 'edad', 'actions'];
   dataSource = new MatTableDataSource<Alumno>([]);
   alumnosSubscription: Subscription = new Subscription();
+  esAdmin = false;
 
   constructor(
     private matDialog: MatDialog,
-    private alumnosService: AlumnosService
+    private alumnosService: AlumnosService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    console.log(this.alumnosService.obtenerAlumnos());
     this.alumnosSubscription = this.alumnosService
       .obtenerAlumnos()
       .subscribe((alumnos) => {
-        console.log(alumnos);
         this.dataSource.data = alumnos;
       });
-    console.log(this.dataSource.data);
-  }
 
+    this.authService.obtenerUsuarioAutenticado().subscribe((usuario) => {
+      if (usuario && usuario.role === 'admin') {
+        this.esAdmin = true;
+      }
+    });
+  }
   ngOnDestroy(): void {
     this.alumnosSubscription.unsubscribe();
   }
@@ -42,8 +48,7 @@ export class ListaAlumnosComponent implements OnInit, OnDestroy {
       if (valor) {
         this.alumnosService.agregarAlumno(valor).subscribe(
           () => {
-            console.log(valor);
-            this.ngOnInit()
+            this.ngOnInit();
           },
           (error) => {
             console.log('Error al agregar alumno:', error);

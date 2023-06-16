@@ -27,6 +27,7 @@ import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
   imports: [
     ReactiveFormsModule,
     MatCardModule,
+    CommonModule,
     MatIconModule,
     MatInputModule,
     MatTableModule,

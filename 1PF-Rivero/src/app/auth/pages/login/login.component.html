@@ -1,22 +1,26 @@
-<h2>Iniciar sesión</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div class="field">
-    <mat-form-field class="w-full">
-      <mat-label>E-mail</mat-label>
-      <input [formControl]="emailControl" type="text" matInput />
-    </mat-form-field>
-  </div>
-  <div class="field">
-    <mat-form-field class="w-full">
-      <mat-label>Contraseña</mat-label>
-      <input [formControl]="passwordControl" type="password" matInput />
-    </mat-form-field>
-  </div>
-  <div class="flex justify-content-end">
-    <button type="submit" color="primary" mat-flat-button>
-      Ingresar
-    </button>
-    <button (click)="abrirABMRegister()" color="primary" mat-flat-button>Registrar
-    </button>
-  </div>
-</form>
+<div class="flex justify-content-center">
+  <h2>Iniciar sesión</h2>
+</div>
+
+<div class="flex justify-content-center">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container">
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input [formControl]="emailControl" type="text" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input [formControl]="passwordControl" type="password" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="flex justify-content-end">
+      <button type="submit" color="primary" mat-flat-button>Ingresar</button>
+      <button (click)="abrirABMRegister()" color="primary" mat-flat-button>Registrar</button>
+    </div>
+  </form>
+</div>

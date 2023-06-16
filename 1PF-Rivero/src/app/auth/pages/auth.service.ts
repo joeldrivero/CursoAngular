@@ -77,4 +77,15 @@ export class AuthService {
         })
       );
   }
+
+  usuarioEsAdmin(): Observable<boolean> {
+    return this.obtenerUsuarioAutenticado().pipe(
+      map((usuarioAutenticado) => {
+        if (usuarioAutenticado) {
+          return usuarioAutenticado.role === 'admin';
+        }
+        return false;
+      })
+    );
+  }
 }

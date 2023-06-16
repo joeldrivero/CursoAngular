@@ -10,6 +10,7 @@ import { InscripcionService } from '../../inscripcion/services/inscripcion.servi
 import { AbmInscripcionComponent } from '../../inscripcion/abm-inscripcion/abm-inscripcion.component';
 import { Inscripcion } from '../../inscripcion/inscripcion.model';
 import { Alumno } from '../../alumnos/lista-alumnos/lista-alumno.model';
+import { AuthService } from 'src/app/auth/pages/auth.service';
 
 @Component({
   selector: 'app-lista-cursos',
@@ -28,10 +29,13 @@ export class ListaCursosComponent {
   dataSource = new MatTableDataSource<Curso>([]);
   cursoSubscription: Subscription = new Subscription();
   alumnosService: any;
+  esAdmin = false;
+
   constructor(
     private matDialog: MatDialog,
     private cursosService: CursosService,
-    private inscripcionService: InscripcionService
+    private inscripcionService: InscripcionService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +44,12 @@ export class ListaCursosComponent {
       .subscribe((cursos) => {
         this.dataSource.data = cursos;
       });
+
+    this.authService.obtenerUsuarioAutenticado().subscribe((usuario) => {
+      if (usuario && usuario.role === 'admin') {
+        this.esAdmin = true;
+      }
+    });
   }
 
   ngOnDestroy(): void {

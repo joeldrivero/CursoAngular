@@ -17,24 +17,6 @@
       },
       "fecha": "",
       "id": 2
-    },
-    {
-      "alumno": {
-        "nombre": "Juan",
-        "apellido": "Perez",
-        "email": "juan@perez.com",
-        "edad": 23,
-        "id": 2
-      },
-      "curso": {
-        "id": 1,
-        "nombre": "Programación en Angular",
-        "duracion": "6 semanas",
-        "fechaInicio": "2022-06-01",
-        "fechaFin": "2022-07-15"
-      },
-      "fecha": "",
-      "id": 3
     }
   ],
   "usuarios": [

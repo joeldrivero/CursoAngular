@@ -1,40 +1,44 @@
 <h1 mat-dialog-title>ABM Alumnos</h1>
+<button mat-icon-button mat-dialog-close class="close-button">
+    <mat-icon>close</mat-icon>
+  </button>
 <div mat-dialog-content>
     <form [formGroup]="cursoForm" (ngSubmit)="onSubmit()" class="w-50">
         <div class="row mb-3">
             <div class="row mb-2">
                 <mat-form-field appearance="fill">
                     <mat-label>Nombre</mat-label>
-                    <input [formControl]="nombreControl" type="text"
-                        [class.is-invalid]="nombreControl.invalid && nombreControl.touched"
-                        class="form-control is-invalid" matInput>
+                    <input matInput [formControl]="nombreControl" required>
+                    <mat-error *ngIf="nombreControl.invalid && nombreControl.touched">Nombre es requerido</mat-error>
                 </mat-form-field>
             </div>
             <div class="row mb-2 ">
                 <mat-form-field appearance="fill">
-                    <mat-label>Duracion</mat-label>
-                    <input [formControl]="duracionControl" type="text"
-                        [class.is-invalid]="duracionControl.invalid && duracionControl.touched" class="form-control"
-                        matInput>
+                    <mat-label>Duración</mat-label>
+                    <input matInput [formControl]="duracionControl" required>
+                    <mat-error *ngIf="duracionControl.invalid && duracionControl.touched">Duración es
+                        requerida</mat-error>
                 </mat-form-field>
             </div>
             <div class="row mb-2">
                 <mat-form-field appearance="fill">
                     <mat-label>Fecha Inicio</mat-label>
-                    <input [formControl]="fechaInicioControl" type="date" class="form-control"
-                        [class.is-invalid]="fechaInicioControl.invalid && fechaInicioControl.touched" matInput>
+                    <input matInput [formControl]="fechaInicioControl" type="date" required>
+                    <mat-error *ngIf="fechaInicioControl.invalid && fechaInicioControl.touched">Fecha Inicio es
+                        requerida</mat-error>
                 </mat-form-field>
             </div>
             <div class="row mb-2">
                 <mat-form-field appearance="fill">
                     <mat-label>Fecha Fin</mat-label>
-                    <input [formControl]="fechaFinControl" type="date" class="form-control"
-                        [class.is-invalid]="fechaFinControl.invalid && fechaFinControl.touched" matInput>
+                    <input matInput [formControl]="fechaFinControl" type="date" required>
+                    <mat-error *ngIf="fechaFinControl.invalid && fechaFinControl.touched">Fecha Fin es
+                        requerida</mat-error>
                 </mat-form-field>
             </div>
         </div>
         <div class="row-12">
-            <button mat-button (click)="onSubmit()">Guardar</button>
+            <button mat-raised-button color="primary" type="submit">Guardar</button>
         </div>
     </form>
 </div>
